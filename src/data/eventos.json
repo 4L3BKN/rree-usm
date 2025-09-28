@@ -214,11 +214,12 @@
       ]
     },
     {
-      "nombre": "Sede Santiago",
+      "nombre": "Campus San Joaquín",
       "sedes": [
         "Laboratorio de Innovación",
         "Sala de Conferencias",
-        "Auditorio Principal"
+        "Auditorio Principal",
+        "Vitacura"
       ]
     }
   ]
