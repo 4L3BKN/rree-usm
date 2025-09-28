@@ -1,0 +1,190 @@
+{
+  "becasInternas": [
+    {
+      "id": "beca-excelencia-academica",
+      "nombre": "Beca de Excelencia Académica USM",
+      "descripcion": "Beca dirigida a estudiantes con alto rendimiento académico que requieren apoyo económico para continuar sus estudios.",
+      "requisitos": [
+        "Promedio ponderado mínimo de 5.5",
+        "Situación socioeconómica vulnerable",
+        "Estar matriculado en USM",
+        "No tener beneficios incompatibles"
+      ],
+      "pasos": [
+        "Completar formulario en línea",
+        "Adjuntar certificados de notas",
+        "Presentar documentación socioeconómica",
+        "Esperar evaluación del comité",
+        "Recibir notificación de resultado"
+      ],
+      "enlaces": [
+        {
+          "texto": "Formulario de postulación",
+          "url": "#"
+        },
+        {
+          "texto": "Bases del concurso",
+          "url": "#"
+        }
+      ],
+      "estado": "abierta",
+      "fechaLimite": "2024-03-15"
+    },
+    {
+      "id": "beca-apoyo-alimentacion",
+      "nombre": "Beca de Apoyo Alimentación",
+      "descripcion": "Subsidio para gastos de alimentación durante el período académico.",
+      "requisitos": [
+        "Índice de vulnerabilidad socioeconómica",
+        "Estar matriculado en modalidad presencial",
+        "Residir fuera de la región de origen"
+      ],
+      "pasos": [
+        "Solicitar evaluación socioeconómica",
+        "Completar encuesta de alimentación",
+        "Presentar documentos de respaldo",
+        "Participar en entrevista (si es requerido)"
+      ],
+      "enlaces": [
+        {
+          "texto": "Solicitar evaluación",
+          "url": "#"
+        }
+      ],
+      "estado": "abierta",
+      "fechaLimite": "2024-04-30"
+    },
+    {
+      "id": "beca-deportiva",
+      "nombre": "Beca Deportiva USM",
+      "descripcion": "Apoyo económico para estudiantes destacados en disciplinas deportivas.",
+      "requisitos": [
+        "Representar a la USM en competencias",
+        "Mantener rendimiento académico satisfactorio",
+        "Compromiso de participación en selecciones"
+      ],
+      "pasos": [
+        "Presentar certificados deportivos",
+        "Evaluación por área de deportes",
+        "Entrevista con coordinador deportivo",
+        "Firma de compromiso deportivo"
+      ],
+      "enlaces": [
+        {
+          "texto": "Contactar área deportes",
+          "url": "#"
+        }
+      ],
+      "estado": "cerrada",
+      "fechaLimite": "2024-02-28"
+    }
+  ],
+  "becasExternas": [
+    {
+      "id": "beca-junaeb",
+      "nombre": "Beca de Alimentación JUNAEB",
+      "descripcion": "Beneficio estatal para estudiantes de educación superior en situación de vulnerabilidad.",
+      "requisitos": [
+        "Pertenecer a los quintiles I, II o III",
+        "Estar matriculado en institución acreditada",
+        "Cumplir requisitos académicos mínimos"
+      ],
+      "pasos": [
+        "Postular en portal JUNAEB",
+        "Completar FUAS",
+        "Validar información socioeconómica",
+        "Esperar asignación automática"
+      ],
+      "enlaces": [
+        {
+          "texto": "Portal JUNAEB",
+          "url": "https://www.junaeb.cl"
+        },
+        {
+          "texto": "Formulario FUAS",
+          "url": "#"
+        }
+      ],
+      "estado": "proximamente",
+      "fechaLimite": "2024-05-15"
+    },
+    {
+      "id": "beca-presidente",
+      "nombre": "Beca Presidente de la República",
+      "descripcion": "Beca estatal de excelencia académica para estudiantes destacados.",
+      "requisitos": [
+        "Puntaje PSU/PDT en percentil 90 o superior",
+        "Situación socioeconómica vulnerable",
+        "Matrícula en carrera acreditada"
+      ],
+      "pasos": [
+        "Postulación automática vía FUAS",
+        "Verificación de puntajes",
+        "Evaluación socioeconómica",
+        "Asignación por MINEDUC"
+      ],
+      "enlaces": [
+        {
+          "texto": "Información MINEDUC",
+          "url": "#"
+        }
+      ],
+      "estado": "cerrada",
+      "fechaLimite": "2024-01-31"
+    }
+  ],
+  "beneficiosEstudiantiles": [
+    {
+      "id": "credito-arancel",
+      "nombre": "Crédito con Aval del Estado (CAE)",
+      "descripcion": "Financiamiento estudiantil para cubrir el arancel de la carrera.",
+      "requisitos": [
+        "Ser estudiante de educación superior",
+        "Institución debe estar adscrita al CAE",
+        "Cumplir requisitos socioeconómicos y académicos"
+      ],
+      "pasos": [
+        "Completar FUAS en portal del estudiante",
+        "Seleccionar institución y carrera",
+        "Firmar pagaré en banco",
+        "Activar beneficio cada semestre"
+      ],
+      "enlaces": [
+        {
+          "texto": "Portal del Estudiante",
+          "url": "#"
+        },
+        {
+          "texto": "Consultas CAE",
+          "url": "#"
+        }
+      ],
+      "estado": "abierta",
+      "fechaLimite": "2024-12-31"
+    },
+    {
+      "id": "fondo-solidario",
+      "nombre": "Fondo Solidario de Crédito Universitario",
+      "descripcion": "Crédito estatal sin intereses para estudiantes de universidades del CRUCH.",
+      "requisitos": [
+        "Pertenecer a los quintiles I, II, III o IV",
+        "Estar matriculado en universidad CRUCH",
+        "Avance académico satisfactorio"
+      ],
+      "pasos": [
+        "Postular vía FUAS",
+        "Evaluación socioeconómica",
+        "Asignación por MINEDUC",
+        "Renovación anual"
+      ],
+      "enlaces": [
+        {
+          "texto": "Renovar beneficio",
+          "url": "#"
+        }
+      ],
+      "estado": "abierta",
+      "fechaLimite": "2024-11-30"
+    }
+  ]
+}
