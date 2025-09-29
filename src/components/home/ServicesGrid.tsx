@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 
 const services = [
   {
@@ -36,7 +37,8 @@ const services = [
     icon: Trophy,
     href: "/deportes",
     color: "text-green-500",
-    stats: "30+ actividades"
+    stats: "30+ actividades",
+    showPopup: true
   },
   {
     title: "Acompañamiento Estudiantil",
@@ -44,7 +46,8 @@ const services = [
     icon: GraduationCap,
     href: "/acompanamiento",
     color: "text-blue-500",
-    stats: "Personalizado"
+    stats: "Personalizado",
+    showPopup: true
   },
   {
     title: "Calendario de Eventos",
@@ -60,11 +63,24 @@ const services = [
     icon: BookOpen,
     href: "/recursos",
     color: "text-orange-500",
-    stats: "100+ recursos"
+    stats: "100+ recursos",
+    showPopup: true
   }
 ];
 
 export function ServicesGrid() {
+  const { toast } = useToast();
+
+  const handleServiceClick = (service: typeof services[0], e: React.MouseEvent) => {
+    if (service.showPopup) {
+      e.preventDefault();
+      toast({
+        title: "Botón de redireccionamiento temporalmente sin función",
+        description: `El acceso a ${service.title} estará disponible próximamente.`,
+      });
+    }
+  };
+
   return (
     <section className="py-16 lg:py-24 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -99,12 +115,23 @@ export function ServicesGrid() {
                   <CardDescription className="text-muted-foreground mb-4 line-clamp-3">
                     {service.description}
                   </CardDescription>
-                  <Button asChild variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
-                    <Link to={service.href}>
+                  {service.showPopup ? (
+                    <Button 
+                      variant="outline" 
+                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-smooth"
+                      onClick={(e) => handleServiceClick(service, e)}
+                    >
                       Acceder
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                    </Button>
+                  ) : (
+                    <Button asChild variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
+                      <Link to={service.href}>
+                        Acceder
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             );
