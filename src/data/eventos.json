@@ -7,7 +7,7 @@
       "fecha": "2024-04-15",
       "hora": "09:00",
       "campus": "Casa Central Valparaíso",
-      "sede": "Campus San Joaquín",
+      "sede": "Biblioteca Central",
       "ubicacion": "Aula Magna",
       "descripcionCorta": "Encuentro entre estudiantes y empresas para oportunidades laborales y de práctica profesional.",
       "descripcionCompleta": "La Feria de Empleo y Prácticas 2024 es el evento más importante del año para conectar a nuestros estudiantes con las mejores oportunidades del mercado laboral. Más de 50 empresas estarán presentes ofreciendo vacantes de práctica profesional, empleos de medio tiempo y oportunidades de trabajo full-time para recién egresados.",
@@ -219,7 +219,16 @@
         "Laboratorio de Innovación",
         "Sala de Conferencias",
         "Auditorio Principal",
-        "Vitacura"
+        "Patio Central",
+        "Patio de lámparas"
+      ]
+    },
+    {
+      "nombre": "Campus Vitacura",
+      "sedes": [
+        "Patio Central",
+        "Edificio Docencia",
+        "Estacionamiento"
       ]
     }
   ]
