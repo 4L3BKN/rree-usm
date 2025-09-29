@@ -18,6 +18,7 @@ const navigation = [
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
   const { toast } = useToast();
 
@@ -48,12 +49,12 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden lg:flex items-center space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`px-3 py-2 text-sm font-medium rounded-md transition-smooth ${
+                className={`px-4 py-2 text-sm font-medium rounded-md transition-smooth ${
                   isActive(item.href)
                     ? "bg-primary text-primary-foreground"
                     : "text-foreground hover:bg-muted hover:text-primary"
@@ -68,13 +69,45 @@ export function Header() {
           {/* Search Bar - Desktop */}
           <div className="hidden md:flex items-center space-x-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                placeholder="Buscar servicios..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-64 pl-10"
-              />
+              {isSearchOpen ? (
+                <div className="flex items-center">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      placeholder="Buscar servicios..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-64 pl-10 pr-10"
+                      autoFocus
+                      onBlur={() => {
+                        if (!searchQuery) {
+                          setIsSearchOpen(false);
+                        }
+                      }}
+                    />
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setIsSearchOpen(false);
+                      setSearchQuery("");
+                    }}
+                    className="ml-2"
+                  >
+                    ×
+                  </Button>
+                </div>
+              ) : (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsSearchOpen(true)}
+                  className="p-2"
+                >
+                  <Search className="h-5 w-5" />
+                </Button>
+              )}
             </div>
           </div>
 
