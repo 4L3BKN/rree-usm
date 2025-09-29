@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import eventosData from "@/data/eventos.json";
+import { useToast } from "@/hooks/use-toast";
 
 interface Evento {
   id: string;
@@ -35,6 +36,7 @@ interface Evento {
 const EventoDetalle = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const { toast } = useToast();
   
   const evento = eventosData.eventos.find((e: Evento) => e.slug === slug) as Evento;
 
@@ -174,14 +176,21 @@ const EventoDetalle = () => {
                     <CardContent className="space-y-4">
                       {evento.estado === "abierto" && evento.inscripcionUrl ? (
                         <>
-                          <Button asChild className="w-full" size="lg">
-                            <a href={evento.inscripcionUrl} target="_blank" rel="noopener noreferrer">
-                              <ExternalLink className="h-4 w-4 mr-2" />
-                              Inscribirse Ahora
-                            </a>
+                          <Button 
+                            className="w-full" 
+                            size="lg"
+                            onClick={() => {
+                              toast({
+                                title: "Inscripción realizada exitosamente!",
+                                description: "Te has inscrito correctamente al evento.",
+                              });
+                            }}
+                          >
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            Inscribirse Ahora
                           </Button>
                           <p className="text-xs text-muted-foreground text-center">
-                            Te redirigirá al sistema de inscripciones
+                            Confirma tu inscripción al evento
                           </p>
                         </>
                       ) : evento.estado === "cerrado" ? (

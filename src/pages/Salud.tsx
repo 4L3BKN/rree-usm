@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Heart, Phone, Mail, Calendar, Stethoscope, Apple, Activity } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 interface Links {
   psicologiaFormUrl: string;
@@ -15,6 +16,7 @@ interface Links {
 
 const Salud = () => {
   const [links, setLinks] = useState<Links | null>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
     const loadLinks = async () => {
@@ -121,9 +123,10 @@ const Salud = () => {
                 size="lg" 
                 className="px-8"
                 onClick={() => {
-                  if (links?.psicologiaFormUrl) {
-                    window.open(links.psicologiaFormUrl, '_blank');
-                  }
+                  toast({
+                    title: "Hora agendada exitosamente",
+                    description: "Recibirás un correo con los detalles de tu cita.",
+                  });
                 }}
               >
                 <Calendar className="mr-2 h-4 w-4" />

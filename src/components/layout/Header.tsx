@@ -3,13 +3,15 @@ import { Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 
 const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Becas y Beneficios", href: "/becas" },
   { name: "Salud y Apoyo Psicológico", href: "/salud" },
-  { name: "Deportes y Cultura", href: "/deportes" },
-  { name: "Acompañamiento Estudiantil", href: "/acompanamiento" },
+  { name: "Eventos", href: "/eventos" },
+  { name: "Deportes y Cultura", href: "/deportes", showPopup: true, description: "Sección de deportes, actividades culturales y recreativas para estudiantes." },
+  { name: "Acompañamiento Estudiantil", href: "/acompanamiento", showPopup: true, description: "Servicios de tutoría, orientación académica y apoyo estudiantil personalizado." },
   { name: "Contacto", href: "/contacto" },
 ];
 
@@ -17,8 +19,19 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
+  const { toast } = useToast();
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleNavClick = (item: typeof navigation[0], e: React.MouseEvent) => {
+    if (item.showPopup) {
+      e.preventDefault();
+      toast({
+        title: item.name,
+        description: item.description,
+      });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -45,6 +58,7 @@ export function Header() {
                     ? "bg-primary text-primary-foreground"
                     : "text-foreground hover:bg-muted hover:text-primary"
                 }`}
+                onClick={(e) => handleNavClick(item, e)}
               >
                 {item.name}
               </Link>
@@ -101,7 +115,10 @@ export function Header() {
                       ? "bg-primary text-primary-foreground"
                       : "text-foreground hover:bg-muted hover:text-primary"
                   }`}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    handleNavClick(item, e);
+                  }}
                 >
                   {item.name}
                 </Link>
