@@ -1,12 +1,8 @@
 import { 
-  GraduationCap, 
   Heart, 
   Trophy, 
-  Users, 
   DollarSign, 
   Calendar,
-  BookOpen,
-  Phone,
   ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -41,30 +37,12 @@ const services = [
     showPopup: true
   },
   {
-    title: "Acompañamiento Estudiantil",
-    description: "Orientación académica, tutorías y apoyo en tu trayectoria universitaria.",
-    icon: GraduationCap,
-    href: "/acompanamiento",
-    color: "text-blue-500",
-    stats: "Personalizado",
-    showPopup: true
-  },
-  {
     title: "Calendario de Eventos",
     description: "Mantente al día con todas las actividades y fechas importantes.",
     icon: Calendar,
     href: "/eventos",
     color: "text-purple-500",
     stats: "Actualizado diariamente"
-  },
-  {
-    title: "Biblioteca de Recursos",
-    description: "Guías, formularios y documentos útiles para estudiantes.",
-    icon: BookOpen,
-    href: "/recursos",
-    color: "text-orange-500",
-    stats: "100+ recursos",
-    showPopup: true
   }
 ];
 
@@ -136,29 +114,6 @@ export function ServicesGrid() {
               </Card>
             );
           })}
-        </div>
-
-        {/* Emergency Contact */}
-        <div className="bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-xl p-6 text-center">
-          <div className="flex items-center justify-center mb-3">
-            <Phone className="h-6 w-6 text-red-600 mr-2" />
-            <h3 className="text-lg font-semibold text-red-900">¿Necesitas ayuda urgente?</h3>
-          </div>
-          <p className="text-red-700 mb-4">
-            Si tienes una emergencia o necesitas apoyo inmediato, contáctanos ahora
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button variant="destructive" asChild>
-              <a href="tel:+56322654000">
-                Llamar: +56 32 265 4000
-              </a>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link to="/contacto">
-                Más opciones de contacto
-              </Link>
-            </Button>
-          </div>
         </div>
       </div>
     </section>

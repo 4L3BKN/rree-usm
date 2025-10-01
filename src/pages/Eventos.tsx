@@ -28,7 +28,7 @@ interface Evento {
 const Eventos = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCampus, setSelectedCampus] = useState("todos");
-  const [selectedSede, setSelectedSede] = useState("todos");
+  const [selectedSede, setSelectedSede] = useState("");
   const [sortOrder, setSortOrder] = useState("fecha-asc");
 
   const eventos = eventosData.eventos as Evento[];
@@ -49,7 +49,7 @@ const Eventos = () => {
                           evento.categoria.toLowerCase().includes(searchTerm.toLowerCase());
       
       const matchesCampus = selectedCampus === "todos" || evento.campus === selectedCampus;
-      const matchesSede = selectedSede === "todos" || evento.sede === selectedSede;
+      const matchesSede = !selectedSede || evento.sede === selectedSede;
       
       return matchesSearch && matchesCampus && matchesSede;
     });
@@ -102,7 +102,7 @@ const Eventos = () => {
 
   const handleCampusChange = (value: string) => {
     setSelectedCampus(value);
-    setSelectedSede("todos"); // Reset sede when campus changes
+    setSelectedSede(""); // Reset sede when campus changes
   };
 
   return (
@@ -170,7 +170,6 @@ const Eventos = () => {
                     <SelectValue placeholder="Seleccionar Sede" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="todos">Todas las Sedes</SelectItem>
                     {availableSedes.map((sede) => (
                       <SelectItem key={sede} value={sede}>
                         {sede}
@@ -214,7 +213,7 @@ const Eventos = () => {
                   onClick={() => {
                     setSearchTerm("");
                     setSelectedCampus("todos");
-                    setSelectedSede("todos");
+                    setSelectedSede("");
                   }}
                   className="mt-4"
                 >

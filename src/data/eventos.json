@@ -3,14 +3,14 @@
     {
       "id": "evento-1",
       "slug": "feria-empleo-valparaiso-2024",
-      "titulo": "Feria de Empleo y Prácticas 2024",
-      "fecha": "2024-04-15",
+      "titulo": "Feria de Empleo y Prácticas 2025",
+      "fecha": "2025-04-15",
       "hora": "09:00",
       "campus": "Casa Central Valparaíso",
       "sede": "Biblioteca Central",
       "ubicacion": "Aula Magna",
       "descripcionCorta": "Encuentro entre estudiantes y empresas para oportunidades laborales y de práctica profesional.",
-      "descripcionCompleta": "La Feria de Empleo y Prácticas 2024 es el evento más importante del año para conectar a nuestros estudiantes con las mejores oportunidades del mercado laboral. Más de 50 empresas estarán presentes ofreciendo vacantes de práctica profesional, empleos de medio tiempo y oportunidades de trabajo full-time para recién egresados.",
+      "descripcionCompleta": "La Feria de Empleo y Prácticas 2025 es el evento más importante del año para conectar a nuestros estudiantes con las mejores oportunidades del mercado laboral. Más de 50 empresas estarán presentes ofreciendo vacantes de práctica profesional, empleos de medio tiempo y oportunidades de trabajo full-time para recién egresados.",
       "ponentes": [
         {
           "nombre": "María González",
@@ -38,7 +38,7 @@
       "id": "evento-2",
       "slug": "seminario-innovacion-tecnologica",
       "titulo": "Seminario de Innovación Tecnológica",
-      "fecha": "2024-04-20",
+      "fecha": "2025-04-20",
       "hora": "14:00",
       "campus": "Casa Central Valparaíso",
       "sede": "Biblioteca Central",
@@ -71,13 +71,13 @@
       "id": "evento-3",
       "slug": "torneo-futbol-inter-carreras",
       "titulo": "Torneo de Fútbol Inter-Carreras",
-      "fecha": "2024-05-05",
+      "fecha": "2025-05-05",
       "hora": "15:00",
       "campus": "Sede Viña del Mar",
       "sede": "Campus Deportivo",
       "ubicacion": "Cancha de Fútbol",
       "descripcionCorta": "Competencia deportiva entre las diferentes carreras de la universidad.",
-      "descripcionCompleta": "El tradicional Torneo de Fútbol Inter-Carreras vuelve con más fuerza que nunca. Equipos de todas las carreras competirán por la copa USM 2024. Además del torneo principal, habrá actividades recreativas, food trucks y premios para los equipos ganadores.",
+      "descripcionCompleta": "El tradicional Torneo de Fútbol Inter-Carreras vuelve con más fuerza que nunca. Equipos de todas las carreras competirán por la copa USM 2025. Además del torneo principal, habrá actividades recreativas, food trucks y premios para los equipos ganadores.",
       "ponentes": [
         {
           "nombre": "Coach Miguel Silva",
@@ -100,7 +100,7 @@
       "id": "evento-4",
       "slug": "taller-liderazgo-estudiantil",
       "titulo": "Taller de Liderazgo Estudiantil",
-      "fecha": "2024-04-25",
+      "fecha": "2025-04-25",
       "hora": "10:00",
       "campus": "Sede Concepción",
       "sede": "Aula 201",
@@ -121,7 +121,7 @@
       ],
       "categoria": "Formativo",
       "cupos": 30,
-      "inscripcionUrl": "https://liderazgo.usm.cl/taller-2024",
+      "inscripcionUrl": "https://liderazgo.usm.cl/taller-2025",
       "contacto": "liderazgo@usm.cl",
       "estado": "cerrado"
     },
@@ -129,7 +129,7 @@
       "id": "evento-5",
       "slug": "festival-arte-cultura",
       "titulo": "Festival de Arte y Cultura USM",
-      "fecha": "2024-05-15",
+      "fecha": "2025-05-15",
       "hora": "18:00",
       "campus": "Casa Central Valparaíso",
       "sede": "Plaza Central",
@@ -157,7 +157,7 @@
       "id": "evento-6",
       "slug": "workshop-emprendimiento-startups",
       "titulo": "Workshop: De la Idea al Startup",
-      "fecha": "2024-04-30",
+      "fecha": "2025-04-30",
       "hora": "16:00",
       "campus": "Campus San Joaquín",
       "sede": "Laboratorio de Innovación",
@@ -186,6 +186,101 @@
       "inscripcionUrl": "https://emprendimiento.usm.cl/workshop",
       "contacto": "emprendimiento@usm.cl",
       "estado": "abierto"
+    },
+    {
+      "id": "evento-7",
+      "slug": "feria-empleo-san-joaquin-2025",
+      "titulo": "Feria de Empleo y Prácticas 2025",
+      "fecha": "2025-04-15",
+      "hora": "09:00",
+      "campus": "Campus San Joaquín",
+      "sede": "Auditorio Principal",
+      "ubicacion": "Auditorio Principal",
+      "descripcionCorta": "Encuentro entre estudiantes y empresas para oportunidades laborales y de práctica profesional.",
+      "descripcionCompleta": "La Feria de Empleo y Prácticas 2025 es el evento más importante del año para conectar a nuestros estudiantes con las mejores oportunidades del mercado laboral. Más de 50 empresas estarán presentes ofreciendo vacantes de práctica profesional, empleos de medio tiempo y oportunidades de trabajo full-time para recién egresados.",
+      "ponentes": [
+        {
+          "nombre": "María González",
+          "cargo": "Directora de RRHH",
+          "empresa": "Empresa ABC"
+        },
+        {
+          "nombre": "Carlos Rodríguez",
+          "cargo": "Gerente de Talento",
+          "empresa": "TechCorp"
+        }
+      ],
+      "requisitos": [
+        "Ser estudiante regular de la USM",
+        "Tener al menos el 60% de la carrera aprobada",
+        "Traer CV actualizado"
+      ],
+      "categoria": "Empleabilidad",
+      "cupos": 200,
+      "inscripcionUrl": "https://eventos.usm.cl/feria-empleo-2025",
+      "contacto": "empleabilidad@usm.cl",
+      "estado": "abierto"
+    },
+    {
+      "id": "evento-8",
+      "slug": "seminario-innovacion-tecnologica-san-joaquin",
+      "titulo": "Seminario de Innovación Tecnológica",
+      "fecha": "2025-04-20",
+      "hora": "14:00",
+      "campus": "Campus San Joaquín",
+      "sede": "Sala de Conferencias",
+      "ubicacion": "Sala de Conferencias",
+      "descripcionCorta": "Charlas magistrales sobre las últimas tendencias en tecnología e innovación.",
+      "descripcionCompleta": "Un seminario de alto nivel que reunirá a expertos internacionales para discutir las últimas tendencias en inteligencia artificial, blockchain, IoT y transformación digital. Una oportunidad única para estudiantes y profesionales de mantenerse actualizados en el vertiginoso mundo de la tecnología.",
+      "ponentes": [
+        {
+          "nombre": "Dr. Ana Martínez",
+          "cargo": "Investigadora Senior",
+          "empresa": "MIT"
+        },
+        {
+          "nombre": "Ing. Pablo Hernández",
+          "cargo": "CTO",
+          "empresa": "StartupTech"
+        }
+      ],
+      "requisitos": [
+        "Conocimientos básicos en tecnología",
+        "Inscripción previa obligatoria"
+      ],
+      "categoria": "Académico",
+      "cupos": 150,
+      "inscripcionUrl": "https://eventos.usm.cl/seminario-innovacion",
+      "contacto": "innovacion@usm.cl",
+      "estado": "abierto"
+    },
+    {
+      "id": "evento-9",
+      "slug": "festival-arte-cultura-san-joaquin",
+      "titulo": "Festival de Arte y Cultura USM",
+      "fecha": "2025-05-15",
+      "hora": "18:00",
+      "campus": "Campus San Joaquín",
+      "sede": "Patio Central",
+      "ubicacion": "Patio Central",
+      "descripcionCorta": "Celebración artística con presentaciones de música, teatro y artes visuales.",
+      "descripcionCompleta": "El Festival de Arte y Cultura USM es una celebración anual que reúne a toda la comunidad universitaria en torno al arte y la cultura. Habrá presentaciones de grupos musicales estudiantiles, obras de teatro, exposiciones de arte, danza y mucho más. Una noche mágica para disfrutar del talento sanjuanino.",
+      "ponentes": [
+        {
+          "nombre": "Directora Patricia Morales",
+          "cargo": "Coordinadora Cultural",
+          "empresa": "Extensión USM"
+        }
+      ],
+      "requisitos": [
+        "Entrada gratuita",
+        "Abierto a toda la comunidad"
+      ],
+      "categoria": "Cultural",
+      "cupos": 500,
+      "inscripcionUrl": "",
+      "contacto": "cultura@usm.cl",
+      "estado": "proximo"
     }
   ],
   "campus": [

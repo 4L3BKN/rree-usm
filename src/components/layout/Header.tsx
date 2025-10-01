@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import logoRREE from "@/assets/logo-rree-usm.png";
 
 const navigation = [
   { name: "Inicio", href: "/" },
@@ -11,7 +12,6 @@ const navigation = [
   { name: "Salud y Apoyo Psicológico", href: "/salud" },
   { name: "Eventos", href: "/eventos" },
   { name: "Deportes y Cultura", href: "/deportes", showPopup: true, description: "Sección de deportes, actividades culturales y recreativas para estudiantes." },
-  { name: "Acompañamiento Estudiantil", href: "/acompanamiento", showPopup: true, description: "Servicios de tutoría, orientación académica y apoyo estudiantil personalizado." },
   { name: "Contacto", href: "/contacto" },
 ];
 
@@ -39,13 +39,12 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 hover-scale">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg gradient-primary">
-              <span className="text-lg font-bold text-white">USM</span>
-            </div>
-            <div className="hidden md:block">
-              <h1 className="text-lg font-semibold text-primary">Relaciones Estudiantiles</h1>
-            </div>
+          <Link to="/" className="flex items-center hover-scale">
+            <img 
+              src={logoRREE} 
+              alt="Dirección de Relaciones Estudiantiles USM" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
