@@ -42,11 +42,15 @@
         "Por méritos:",
         "  - Rendimiento académico, deportivo, cultural u otros"
       ],
-      "pasos": [],
+      "pasos": [
+        "Mandar correo a becasusm@usm.cl con el asunto 'beca alimentación'",
+        "En caso de postulación por mérito, se debe hablar directamente con cada departamento"
+      ],
       "enlaces": [
         {
           "texto": "Ver más información",
-          "url": "https://rree.usm.cl/wp-content/uploads/2024/12/BECA-DE-ALIMENTACION-USM_V2.pdf"
+          "url": "popup",
+          "popupText": "Se muestra PDF"
         }
       ],
       "estado": "abierta",

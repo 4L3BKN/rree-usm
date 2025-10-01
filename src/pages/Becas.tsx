@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { AlertDialog, AlertDialogContent, AlertDialogDescription, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import becasData from "@/data/becas.json";
 
 interface Beca {
@@ -17,6 +18,7 @@ interface Beca {
   enlaces: Array<{
     texto: string;
     url: string;
+    popupText?: string;
   }>;
   estado: "abierta" | "cerrada" | "proximamente";
   fechaLimite: string;
@@ -25,10 +27,10 @@ interface Beca {
 const Becas = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const allBecas = [
-    ...becasData.becasInternas.map(beca => ({ ...beca, categoria: "Becas Internas" })),
-    ...becasData.becasExternas.map(beca => ({ ...beca, categoria: "Becas Externas" })),
-    ...becasData.beneficiosEstudiantiles.map(beca => ({ ...beca, categoria: "Beneficios Estudiantiles" }))
+  const allBecas: Array<Beca & { categoria: string }> = [
+    ...becasData.becasInternas.map(beca => ({ ...beca as Beca, categoria: "Becas Internas" })),
+    ...becasData.becasExternas.map(beca => ({ ...beca as Beca, categoria: "Becas Externas" })),
+    ...becasData.beneficiosEstudiantiles.map(beca => ({ ...beca as Beca, categoria: "Beneficios Estudiantiles" }))
   ];
 
   const filteredBecas = useMemo(() => {
@@ -182,18 +184,41 @@ const Becas = () => {
                             <h4 className="font-semibold mb-3 text-foreground">Enlaces oficiales</h4>
                             <div className="flex flex-wrap gap-3">
                               {beca.enlaces.map((enlace, index) => (
-                                <Button 
-                                  key={index} 
-                                  variant="outline" 
-                                  size="sm"
-                                  className="gap-2"
-                                  asChild
-                                >
-                                  <a href={enlace.url} target="_blank" rel="noopener noreferrer">
-                                    <ExternalLink className="h-3 w-3" />
-                                    {enlace.texto}
-                                  </a>
-                                </Button>
+                                enlace.url === "popup" && enlace.popupText ? (
+                                  <AlertDialog key={index}>
+                                    <AlertDialogTrigger asChild>
+                                      <Button 
+                                        variant="outline" 
+                                        size="sm"
+                                        className="gap-2"
+                                      >
+                                        <ExternalLink className="h-3 w-3" />
+                                        {enlace.texto}
+                                      </Button>
+                                    </AlertDialogTrigger>
+                                    <AlertDialogContent>
+                                      <AlertDialogHeader>
+                                        <AlertDialogTitle>{enlace.texto}</AlertDialogTitle>
+                                        <AlertDialogDescription>
+                                          {enlace.popupText}
+                                        </AlertDialogDescription>
+                                      </AlertDialogHeader>
+                                    </AlertDialogContent>
+                                  </AlertDialog>
+                                ) : (
+                                  <Button 
+                                    key={index} 
+                                    variant="outline" 
+                                    size="sm"
+                                    className="gap-2"
+                                    asChild
+                                  >
+                                    <a href={enlace.url} target="_blank" rel="noopener noreferrer">
+                                      <ExternalLink className="h-3 w-3" />
+                                      {enlace.texto}
+                                    </a>
+                                  </Button>
+                                )
                               ))}
                             </div>
                           </div>
