@@ -10,9 +10,8 @@ const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Becas y Beneficios", href: "/becas" },
   { name: "Salud y Apoyo Psicológico", href: "/salud" },
-  { name: "Eventos", href: "/eventos" },
+  { name: "Calendario de Eventos", href: "/eventos" },
   { name: "Deportes y Cultura", href: "/deportes", showPopup: true, description: "Sección de deportes, actividades culturales y recreativas para estudiantes." },
-  { name: "Contacto", href: "/contacto" },
 ];
 
 export function Header() {
@@ -35,7 +34,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-[#003057] backdrop-blur supports-[backdrop-filter]:bg-[#003057]/95">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -55,8 +54,8 @@ export function Header() {
                 to={item.href}
                 className={`px-4 py-2 text-sm font-medium rounded-md transition-smooth ${
                   isActive(item.href)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-muted hover:text-primary"
+                    ? "bg-white/20 text-white"
+                    : "text-white/90 hover:bg-white/10 hover:text-white"
                 }`}
                 onClick={(e) => handleNavClick(item, e)}
               >
@@ -98,14 +97,14 @@ export function Header() {
                   </Button>
                 </div>
               ) : (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setIsSearchOpen(true)}
-                  className="p-2"
-                >
-                  <Search className="h-5 w-5" />
-                </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setIsSearchOpen(true)}
+                    className="p-2 text-white hover:bg-white/10"
+                  >
+                    <Search className="h-5 w-5" />
+                  </Button>
               )}
             </div>
           </div>
@@ -114,7 +113,7 @@ export function Header() {
           <Button
             variant="ghost"
             size="sm"
-            className="lg:hidden"
+            className="lg:hidden text-white hover:bg-white/10"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -123,7 +122,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden">
+          <div className="lg:hidden bg-[#003057]">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {/* Mobile Search */}
               <div className="mb-4">
@@ -144,8 +143,8 @@ export function Header() {
                   to={item.href}
                   className={`block px-3 py-2 text-base font-medium rounded-md transition-smooth ${
                     isActive(item.href)
-                      ? "bg-primary text-primary-foreground"
-                      : "text-foreground hover:bg-muted hover:text-primary"
+                      ? "bg-white/20 text-white"
+                      : "text-white/90 hover:bg-white/10 hover:text-white"
                   }`}
                   onClick={(e) => {
                     setIsMenuOpen(false);

@@ -94,6 +94,29 @@ const Salud = () => {
           </p>
         </div>
 
+        {/* Servicios de Salud */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
+            Servicios de Salud Disponibles
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {servicios.map((servicio) => (
+              <Card key={servicio.nombre} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                    <servicio.icon className="h-6 w-6 text-primary" />
+                    {servicio.nombre}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-3">{servicio.descripcion}</p>
+                  <Badge variant="secondary">{servicio.disponibilidad}</Badge>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
         {/* Sección Principal - Cómo agendar */}
         <Card className="mb-12">
           <CardHeader className="text-center">
@@ -135,29 +158,6 @@ const Salud = () => {
             </div>
           </CardContent>
         </Card>
-
-        {/* Servicios de Salud */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
-            Servicios de Salud Disponibles
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {servicios.map((servicio) => (
-              <Card key={servicio.nombre} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <servicio.icon className="h-6 w-6 text-primary" />
-                    {servicio.nombre}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-3">{servicio.descripcion}</p>
-                  <Badge variant="secondary">{servicio.disponibilidad}</Badge>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
 
         {/* Bloque de Urgencias */}
         <Card className="bg-destructive/5 border-destructive/20">
