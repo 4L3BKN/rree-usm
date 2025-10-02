@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import logoRREE from "@/assets/logo-rree-usm.png";
+import logoUSM from "@/assets/logo-usm.png";
 
 const navigation = [
   { name: "Inicio", href: "/" },
@@ -40,8 +40,8 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center hover-scale">
             <img 
-              src={logoRREE} 
-              alt="Dirección de Relaciones Estudiantiles USM" 
+              src={logoUSM} 
+              alt="Universidad Técnica Federico Santa María" 
               className="h-12 w-auto"
             />
           </Link>
