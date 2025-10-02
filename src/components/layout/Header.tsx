@@ -36,9 +36,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-[#003057] backdrop-blur supports-[backdrop-filter]:bg-[#003057]/95">
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center hover-scale">
+          <Link to="/" className="flex items-center hover-scale flex-shrink-0">
             <img 
               src={logoUSM} 
               alt="Universidad Técnica Federico Santa María" 
@@ -46,13 +46,13 @@ export function Header() {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          {/* Navigation - Always visible */}
+          <nav className="flex items-center space-x-4 flex-1 justify-center">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`px-4 py-2 text-sm font-medium rounded-md transition-smooth ${
+                className={`px-3 py-2 text-sm font-medium rounded-md transition-smooth whitespace-nowrap ${
                   isActive(item.href)
                     ? "bg-white/20 text-white"
                     : "text-white/90 hover:bg-white/10 hover:text-white"
@@ -64,8 +64,8 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Search Bar - Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Search Bar - Right side */}
+          <div className="flex items-center flex-shrink-0">
             <div className="relative">
               {isSearchOpen ? (
                 <div className="flex items-center">
@@ -91,72 +91,24 @@ export function Header() {
                       setIsSearchOpen(false);
                       setSearchQuery("");
                     }}
-                    className="ml-2"
+                    className="ml-2 text-white hover:bg-white/10"
                   >
                     ×
                   </Button>
                 </div>
               ) : (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setIsSearchOpen(true)}
-                    className="p-2 text-white hover:bg-white/10"
-                  >
-                    <Search className="h-5 w-5" />
-                  </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsSearchOpen(true)}
+                  className="p-2 text-white hover:bg-white/10"
+                >
+                  <Search className="h-5 w-5" />
+                </Button>
               )}
             </div>
           </div>
-
-          {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="lg:hidden text-white hover:bg-white/10"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="lg:hidden bg-[#003057]">
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {/* Mobile Search */}
-              <div className="mb-4">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <Input
-                    placeholder="Buscar servicios..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10"
-                  />
-                </div>
-              </div>
-              
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`block px-3 py-2 text-base font-medium rounded-md transition-smooth ${
-                    isActive(item.href)
-                      ? "bg-white/20 text-white"
-                      : "text-white/90 hover:bg-white/10 hover:text-white"
-                  }`}
-                  onClick={(e) => {
-                    setIsMenuOpen(false);
-                    handleNavClick(item, e);
-                  }}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </header>
   );
