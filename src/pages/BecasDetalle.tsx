@@ -92,9 +92,9 @@ export default function BecasDetalle() {
                                     {beca.nombre}
                                 </h1>
 
-                                <p className="text-lg text-muted-foreground mb-6">
+                                {/*<p className="text-lg text-muted-foreground mb-6">
                                     {beca.descripcion}
-                                </p>
+                                </p>*/}
 
                                 {/* Información general */}
                                 <div className="grid sm:grid-cols-2 gap-4">
