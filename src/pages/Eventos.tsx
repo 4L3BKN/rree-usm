@@ -108,8 +108,6 @@ const Eventos = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
-      <main className="pt-20">
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-primary via-primary-light to-accent py-16">
           <div className="container mx-auto px-4">
@@ -230,57 +228,83 @@ const Eventos = () => {
                   
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {eventosDelCampus.map((evento) => (
-                      <Card key={evento.id} className="hover:shadow-lg transition-shadow hover-scale">
-                        <CardHeader className="pb-3">
-                          <div className="flex justify-between items-start mb-2">
-                            <Badge variant="outline" className="text-xs">
+                      <Card
+                        key={evento.id}
+                        className="overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl border-border/70"
+                      >
+                        {/* Encabezado con color o imagen */}
+                        <div
+                          className={`h-28 flex items-end p-4 text-white ${
+                            evento.categoria === "Académico"
+                              ? "bg-gradient-to-r from-blue-600 to-blue-400"
+                              : evento.categoria === "Cultural"
+                              ? "bg-gradient-to-r from-pink-600 to-pink-400"
+                              : evento.categoria === "Empleabilidad"
+                              ? "bg-gradient-to-r from-green-600 to-green-400"
+                              : "bg-gradient-to-r from-primary to-primary-light"
+                          }`}
+                        >
+                          <h3 className="text-xl font-semibold leading-tight drop-shadow-sm">
+                            {evento.titulo}
+                          </h3>
+                        </div>
+
+                        {/* Cuerpo */}
+                        <CardContent className="p-5 space-y-3">
+                          <div className="text-sm text-muted-foreground flex items-center gap-2">
+                            <Calendar className="h-4 w-4" />
+                            {new Date(evento.fecha).toLocaleDateString("es-CL", {
+                              weekday: "long",
+                              day: "numeric",
+                              month: "long",
+                            })}{" "}
+                            • {evento.hora}
+                          </div>
+
+                          <div className="text-sm text-muted-foreground flex items-center gap-2">
+                            <MapPin className="h-4 w-4" />
+                            {evento.sede} • {evento.ubicacion}
+                          </div>
+
+                          <p className="text-sm text-muted-foreground line-clamp-2">
+                            {evento.descripcionCorta}
+                          </p>
+
+                          {/* Estado y categoría */}
+                          <div className="flex flex-wrap gap-2 mt-3">
+                            <Badge
+                              variant="outline"
+                              className="text-xs border-primary text-primary"
+                            >
                               {evento.categoria}
                             </Badge>
-                            {getEstadoBadge(evento.estado)}
+                            {evento.estado === "abierto" ? (
+                              <Badge className="text-xs bg-green-600 text-white">
+                                Inscripciones Abiertas
+                              </Badge>
+                            ) : evento.estado === "proximo" ? (
+                              <Badge className="text-xs bg-yellow-500 text-white">
+                                Próximamente
+                              </Badge>
+                            ) : (
+                              <Badge className="text-xs bg-gray-400 text-white">Cerrado</Badge>
+                            )}
                           </div>
-                          <CardTitle className="text-lg line-clamp-2">
-                            {evento.titulo}
-                          </CardTitle>
-                        </CardHeader>
-                        
-                        <CardContent>
-                          <div className="space-y-3">
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Clock className="h-4 w-4" />
-                              {formatDate(evento.fecha, evento.hora)}
-                            </div>
-                            
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <MapPin className="h-4 w-4" />
-                              {evento.sede} • {evento.ubicacion}
-                            </div>
-                            
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Users className="h-4 w-4" />
-                              {evento.cupos} cupos disponibles
-                            </div>
-                            
-                            <p className="text-sm text-muted-foreground line-clamp-3">
-                              {evento.descripcionCorta}
-                            </p>
-                            
-                            <Button asChild className="w-full mt-4">
-                              <Link to={`/eventos/${evento.slug}`}>
-                                Ver Detalles
-                              </Link>
-                            </Button>
-                          </div>
+
+                          {/* Botón */}
+                          <Button asChild className="w-full mt-4">
+                            <Link to={`/eventos/${evento.slug}`}>Ver Detalles</Link>
+                          </Button>
                         </CardContent>
                       </Card>
                     ))}
                   </div>
+
                 </div>
               ))
             )}
           </div>
         </section>
-      </main>
-
       <Footer />
     </div>
   );
