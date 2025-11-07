@@ -2,6 +2,7 @@
   "becasInternas": [
     {
       "id": "beca-excelencia-academica",
+      "slug": "beca-excelencia-academica",
       "nombre": "Beca de Excelencia Académica USM",
       "descripcion": "Beca dirigida a estudiantes con alto rendimiento académico que requieren apoyo económico para continuar sus estudios.",
       "requisitos": [
@@ -28,10 +29,13 @@
         }
       ],
       "estado": "abierta",
-      "fechaLimite": "2025-03-15"
+      "fechaLimite": "2025-03-15",
+      "beneficio": "Monto monetario",
+      "duracionBeneficio": "1 semestre"
     },
     {
       "id": "beca-apoyo-alimentacion",
+      "slug": "beca-apoyo-alimentacion", 
       "nombre": "Beca de Apoyo Alimentación",
       "descripcion": "Subsidio para gastos de alimentación durante el período académico.",
       "requisitos": [
@@ -49,15 +53,17 @@
       "enlaces": [
         {
           "texto": "Ver más información",
-          "url": "popup",
-          "popupText": "Se muestra PDF"
+          "url": "beca-apoyo-alimentacion"
         }
       ],
       "estado": "abierta",
-      "fechaLimite": "2025-08-29"
+      "fechaLimite": "2025-08-29",
+      "beneficio": "Raciones de comida para ocupar en el casino institucional",
+      "duracionBeneficio":"1 semestre"
     },
     {
       "id": "beca-deportiva",
+      "slug": "beca-deportiva",
       "nombre": "Beca Deportiva USM",
       "descripcion": "Apoyo económico para estudiantes destacados en disciplinas deportivas.",
       "requisitos": [
@@ -78,12 +84,15 @@
         }
       ],
       "estado": "cerrada",
-      "fechaLimite": "2025-02-28"
+      "fechaLimite": "2025-02-28",
+      "beneficio":"Monto monetario",
+      "duracionBeneficio":"1 semestre"
     }
   ],
   "becasExternas": [
     {
       "id": "beca-junaeb",
+      "slug": "beca-junaeb",
       "nombre": "Beca de Alimentación JUNAEB",
       "descripcion": "Beneficio estatal para estudiantes de educación superior en situación de vulnerabilidad.",
       "requisitos": [
@@ -108,10 +117,13 @@
         }
       ],
       "estado": "proximamente",
-      "fechaLimite": "2025-05-15"
+      "fechaLimite": "2025-05-15",
+      "beneficio": "Tarjeta con cargas mensuales para gastos alimenticios",
+      "duracionBeneficio": "a evaluación de JUNAEB"
     },
     {
       "id": "beca-presidente",
+      "slug": "beca-presidente",
       "nombre": "Beca Presidente de la República",
       "descripcion": "Beca estatal de excelencia académica para estudiantes destacados.",
       "requisitos": [
@@ -132,12 +144,15 @@
         }
       ],
       "estado": "cerrada",
-      "fechaLimite": "2025-01-31"
+      "fechaLimite": "2025-01-31",
+      "beneficio":"Monto monetario",
+      "duracionBeneficio":"1 semestre"
     }
   ],
   "beneficiosEstudiantiles": [
     {
       "id": "credito-arancel",
+      "slug": "credito-arancel",
       "nombre": "Crédito con Aval del Estado (CAE)",
       "descripcion": "Financiamiento estudiantil para cubrir el arancel de la carrera.",
       "requisitos": [
@@ -162,10 +177,13 @@
         }
       ],
       "estado": "abierta",
-      "fechaLimite": "2025-12-31"
+      "fechaLimite": "2025-12-31",
+      "beneficio": "Monto monetario que cubre un porcentaje de las cuotas mensuales",
+      "duracionBeneficio": "1 año"
     },
     {
       "id": "fondo-solidario",
+      "slug": "fondo-solidario",
       "nombre": "Fondo Solidario de Crédito Universitario",
       "descripcion": "Crédito estatal sin intereses para estudiantes de universidades del CRUCH.",
       "requisitos": [
@@ -186,7 +204,9 @@
         }
       ],
       "estado": "abierta",
-      "fechaLimite": "2025-11-30"
+      "fechaLimite": "2025-11-30",
+      "beneficio": "Monto monetario que cubre un porcentaje de las cuotas mensuales",
+      "duracionBeneficio":"1 año"
     }
   ]
 }
