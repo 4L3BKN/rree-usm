@@ -11,27 +11,14 @@ const navigation = [
   { name: "Becas y Beneficios", href: "/becas" },
   { name: "Salud y Apoyo Psicológico", href: "/salud" },
   { name: "Calendario de Eventos", href: "/eventos" },
-  { name: "Deportes y Cultura", href: "/deportes", showPopup: true, description: "Sección de deportes, actividades culturales y recreativas para estudiantes." },
 ];
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
-  const { toast } = useToast();
 
   const isActive = (path: string) => location.pathname === path;
-
-  const handleNavClick = (item: typeof navigation[0], e: React.MouseEvent) => {
-    if (item.showPopup) {
-      e.preventDefault();
-      toast({
-        title: item.name,
-        description: item.description,
-      });
-    }
-  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-[#003057] backdrop-blur supports-[backdrop-filter]:bg-[#003057]/95">
@@ -57,7 +44,6 @@ export function Header() {
                     ? "bg-white/20 text-white"
                     : "text-white/90 hover:bg-white/10 hover:text-white"
                 }`}
-                onClick={(e) => handleNavClick(item, e)}
               >
                 {item.name}
               </Link>
@@ -65,6 +51,7 @@ export function Header() {
           </nav>
 
           {/* Search Bar - Right side */}
+          {/*
           <div className="flex items-center flex-shrink-0">
             <div className="relative">
               {isSearchOpen ? (
@@ -108,6 +95,7 @@ export function Header() {
               )}
             </div>
           </div>
+          */}
         </div>
       </div>
     </header>

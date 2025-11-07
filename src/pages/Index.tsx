@@ -9,7 +9,6 @@ const Index = () => {
       <Header />
       <main>
         <ServicesGrid />
-        <NewsSection />
       </main>
       <Footer />
     </div>

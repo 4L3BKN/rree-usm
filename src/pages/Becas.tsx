@@ -83,6 +83,9 @@ const Becas = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Becas y Beneficios Estudiantiles
             </h1>
+            <p className="text-xl mb-8 opacity-90">
+              Descubre las becas y los beneficios disponibles.
+            </p>
           </div>
         </div>
       </section>
