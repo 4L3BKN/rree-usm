@@ -8,6 +8,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import eventosData from "@/data/eventos.json";
 import { useToast } from "@/hooks/use-toast";
+import { useEffect, useRef, useState } from "react";
+
+
 
 interface Evento {
   id: string;
@@ -37,14 +40,48 @@ const EventoDetalle = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  const [showStickyTitle, setShowStickyTitle] = useState(false);
+const mainTitleRef = useRef<HTMLHeadingElement | null>(null);
+
+// Al entrar al detalle, sube al tope
+useEffect(() => {
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+}, []);
+
+// Observa si el título grande está visible; si NO lo está, muestra el sticky
+useEffect(() => {
+  if (!mainTitleRef.current) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      // Cuando el título grande deja de ser visible, mostramos el sticky
+      setShowStickyTitle(!entry.isIntersecting);
+    },
+    {
+      root: null,
+      threshold: 0,
+      // Ajusta este margen al alto de tu header para que el cambio sea natural
+      // p.ej. si el header mide ~64–72px, -80px va bien
+      rootMargin: "-80px 0px 0px 0px",
+    }
+  );
+
+  observer.observe(mainTitleRef.current);
+  return () => observer.disconnect();
+}, []);
+
   
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
   const evento = eventosData.eventos.find((e: Evento) => e.slug === slug) as Evento;
 
   if (!evento) {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="pt-20">
           <div className="container mx-auto px-4 py-16 text-center">
             <h1 className="text-2xl font-bold mb-4">Evento no encontrado</h1>
             <p className="text-muted-foreground mb-8">
@@ -54,7 +91,6 @@ const EventoDetalle = () => {
               Volver a Eventos
             </Button>
           </div>
-        </main>
         <Footer />
       </div>
     );
@@ -87,8 +123,6 @@ const EventoDetalle = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
-      <main className="pt-20">
         {/* Breadcrumb y botón volver */}
         <section className="py-6 border-b">
           <div className="container mx-auto px-4">
@@ -111,6 +145,27 @@ const EventoDetalle = () => {
           </div>
         </section>
 
+        {/* Sticky title global al detalle (fuera del hero) */}
+        {showStickyTitle && (
+          <div className="sticky top-16 z-40 border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto py-3">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="outline" className="text-xs md:text-sm">
+                      {evento.categoria}
+                    </Badge>
+                    {getEstadoBadge(evento.estado)}
+                  </div>
+                  <h2 className="text-sm md:text-base font-semibold truncate max-w-[70vw]">
+                    {evento.titulo}
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Header del evento */}
         <section className="py-12 bg-gradient-to-r from-primary/10 via-primary-light/10 to-accent/10">
           <div className="container mx-auto px-4">
@@ -124,10 +179,10 @@ const EventoDetalle = () => {
                     {getEstadoBadge(evento.estado)}
                   </div>
                   
-                  <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+                  <h1 ref={mainTitleRef} className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
                     {evento.titulo}
                   </h1>
-                  
+
                   <p className="text-lg text-muted-foreground mb-6">
                     {evento.descripcionCorta}
                   </p>
@@ -165,57 +220,6 @@ const EventoDetalle = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-
-                {/* CTA */}
-                <div className="lg:w-80">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-center">Inscripción</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      {evento.estado === "abierto" && evento.inscripcionUrl ? (
-                        <>
-                          <Button 
-                            className="w-full" 
-                            size="lg"
-                            onClick={() => {
-                              toast({
-                                title: "Inscripción realizada exitosamente!",
-                                description: "Te has inscrito correctamente al evento.",
-                              });
-                            }}
-                          >
-                            <ExternalLink className="h-4 w-4 mr-2" />
-                            Inscribirse Ahora
-                          </Button>
-                          <p className="text-xs text-muted-foreground text-center">
-                            Confirma tu inscripción al evento
-                          </p>
-                        </>
-                      ) : evento.estado === "cerrado" ? (
-                        <div className="text-center py-4">
-                          <p className="text-muted-foreground">Las inscripciones están cerradas</p>
-                        </div>
-                      ) : (
-                        <div className="text-center py-4">
-                          <p className="text-muted-foreground">Las inscripciones abrirán pronto</p>
-                        </div>
-                      )}
-                      
-                      <Separator />
-                      
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground">¿Tienes dudas?</p>
-                        <a 
-                          href={`mailto:${evento.contacto}`}
-                          className="text-sm text-primary hover:underline"
-                        >
-                          {evento.contacto}
-                        </a>
-                      </div>
-                    </CardContent>
-                  </Card>
                 </div>
               </div>
             </div>
@@ -310,8 +314,6 @@ const EventoDetalle = () => {
             </div>
           </div>
         </section>
-      </main>
-
       <Footer />
     </div>
   );
