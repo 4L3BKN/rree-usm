@@ -8,7 +8,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { useToast } from "@/hooks/use-toast";
 
 const services = [
   {
@@ -28,15 +27,6 @@ const services = [
     stats: "Atención 24/7"
   },
   {
-    title: "Deportes y Cultura",
-    description: "Participa en actividades deportivas, talleres culturales y eventos estudiantiles.",
-    icon: Trophy,
-    href: "/deportes",
-    color: "text-green-500",
-    stats: "30+ actividades",
-    showPopup: true
-  },
-  {
     title: "Calendario de Eventos",
     description: "Mantente al día con todas las actividades y fechas importantes.",
     icon: Calendar,
@@ -47,29 +37,24 @@ const services = [
 ];
 
 export function ServicesGrid() {
-  const { toast } = useToast();
-
-  const handleServiceClick = (service: typeof services[0], e: React.MouseEvent) => {
-    if (service.showPopup) {
-      e.preventDefault();
-      toast({
-        title: "Botón de redireccionamiento temporalmente sin función",
-        description: `El acceso a ${service.title} estará disponible próximamente.`,
-      });
-    }
-  };
-
+  
   return (
-    <section className="py-16 lg:py-24 bg-muted/30">
+    <section>
+
+      <section className="bg-gradient-to-r from-primary via-primary-light to-accent py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Servicios para Estudiantes
+              </h2>
+              <p className="text-lg text-white/90 max-w-2xl mx-auto">
+                Encuentra todo lo que necesitas para tu vida universitaria en un solo lugar
+              </p>
+            </div>
+          </div>
+        </section>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Servicios para Estudiantes
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Encuentra todo lo que necesitas para tu vida universitaria en un solo lugar
-          </p>
-        </div>
+        
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {services.map((service) => {
@@ -93,23 +78,12 @@ export function ServicesGrid() {
                   <CardDescription className="text-muted-foreground mb-4 line-clamp-3">
                     {service.description}
                   </CardDescription>
-                  {service.showPopup ? (
-                    <Button 
-                      variant="outline" 
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-smooth"
-                      onClick={(e) => handleServiceClick(service, e)}
-                    >
-                      Acceder
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  ) : (
                     <Button asChild variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
                       <Link to={service.href}>
                         Acceder
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
-                  )}
                 </CardContent>
               </Card>
             );
