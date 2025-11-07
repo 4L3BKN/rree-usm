@@ -1,22 +1,32 @@
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
+import LogoUSM from "../../assets/logo-usm-noletras.png";
 
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+
           {/* USM Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
-                <span className="text-lg font-bold text-accent-foreground">USM</span>
-              </div>
+              <img
+                src={LogoUSM}
+                alt="Logo USM"
+                className="h-10 w-10 object-contain"
+              />
+
               <div>
-                <h3 className="font-semibold">Universidad Técnica Federico Santa María</h3>
-                <p className="text-sm text-primary-foreground/80">Relaciones Estudiantiles</p>
+                <h3 className="font-semibold">
+                  Universidad Técnica Federico Santa María
+                </h3>
+                <p className="text-sm text-primary-foreground/80">
+                  Relaciones Estudiantiles
+                </p>
               </div>
             </div>
+
             <p className="text-sm text-primary-foreground/80">
               Comprometidos con el bienestar y desarrollo integral de nuestros estudiantes.
             </p>

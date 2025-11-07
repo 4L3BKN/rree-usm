@@ -7,6 +7,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Heart, Phone, Mail, Calendar, Stethoscope, Apple, Activity } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 interface Links {
   psicologiaFormUrl: string;
@@ -17,6 +18,7 @@ interface Links {
 const Salud = () => {
   const [links, setLinks] = useState<Links | null>(null);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadLinks = async () => {
@@ -59,30 +61,13 @@ const Salud = () => {
     }
   ];
 
-  const pasos = [
-    {
-      numero: 1,
-      titulo: "Completa el formulario",
-      descripcion: "Llena el formulario online con tus datos personales y motivo de consulta"
-    },
-    {
-      numero: 2,
-      titulo: "Recibe confirmación por correo",
-      descripcion: "Te enviaremos un email con la confirmación de tu hora y detalles de la cita"
-    },
-    {
-      numero: 3,
-      titulo: "Asiste a tu hora",
-      descripcion: "Preséntate puntualmente en el lugar indicado con tu carnet universitario"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
       <main className="container mx-auto px-4 py-8">
-        {/* Hero Section */}
+
+        {/* Hero */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
             <Heart className="h-8 w-8 text-primary" />
@@ -108,56 +93,29 @@ const Salud = () => {
                     {servicio.nombre}
                   </CardTitle>
                 </CardHeader>
+
                 <CardContent>
                   <p className="text-muted-foreground mb-3">{servicio.descripcion}</p>
                   <Badge variant="secondary">{servicio.disponibilidad}</Badge>
+
+                  {/* ✅ Botón solo para Psicología */}
+                  {servicio.nombre === "Psicología" && (
+                    <div className="mt-4">
+                      <Button
+                        variant="outline"
+                        className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                        onClick={() => navigate("/psicologia")}
+                      >
+                        <Calendar className="mr-2 h-4 w-4" />
+                        Ver atención psicológica
+                      </Button>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
           </div>
         </section>
-
-        {/* Sección Principal - Cómo agendar */}
-        <Card className="mb-12">
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl flex items-center justify-center gap-2">
-              <Calendar className="h-6 w-6" />
-              Cómo agendar una hora con el psicólogo
-            </CardTitle>
-            <CardDescription>
-              Sigue estos simples pasos para solicitar tu cita de apoyo psicológico
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-8">
-            {pasos.map((paso) => (
-              <div key={paso.numero} className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
-                  {paso.numero}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{paso.titulo}</h3>
-                  <p className="text-muted-foreground">{paso.descripcion}</p>
-                </div>
-              </div>
-            ))}
-            
-            <div className="text-center pt-6">
-              <Button 
-                size="lg" 
-                className="px-8"
-                onClick={() => {
-                  toast({
-                    title: "Hora agendada exitosamente",
-                    description: "Recibirás un correo con los detalles de tu cita.",
-                  });
-                }}
-              >
-                <Calendar className="mr-2 h-4 w-4" />
-                Agendar hora
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Bloque de Urgencias */}
         <Card className="bg-destructive/5 border-destructive/20">
@@ -170,6 +128,7 @@ const Salud = () => {
               Si necesitas ayuda inmediata, no dudes en contactarnos
             </CardDescription>
           </CardHeader>
+
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
               <div className="space-y-2">
@@ -180,9 +139,9 @@ const Salud = () => {
                 </p>
                 <p className="text-sm text-muted-foreground">Disponible 24/7</p>
               </div>
-              
+
               <Separator orientation="vertical" className="hidden md:block h-24 mx-auto" />
-              
+
               <div className="space-y-2">
                 <Mail className="h-8 w-8 text-destructive mx-auto" />
                 <h3 className="font-semibold text-foreground">Correo de Emergencia</h3>
