@@ -10,7 +10,7 @@ const Index = () => {
       <Header />
       <main>
         <ServicesGrid />
-        <SedesRREE />
+        {/*<SedesRREE />*/}
       </main>
       <Footer />
     </div>

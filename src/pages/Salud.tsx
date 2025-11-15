@@ -17,7 +17,6 @@ interface Links {
 
 const Salud = () => {
   const [links, setLinks] = useState<Links | null>(null);
-  const { toast } = useToast();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -118,7 +117,7 @@ const Salud = () => {
                           className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
                           onClick={() => navigate("/psicologia")}
                         >
-                          <Calendar className="mr-2 h-4 w-4" />
+                
                           Ver atención psicológica
                         </Button>
                       </div>
@@ -129,42 +128,7 @@ const Salud = () => {
             </div>
           </section>
 
-          {/* Bloque de Urgencias */}
-          <Card className="bg-destructive/5 border-destructive/20">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl text-destructive flex items-center justify-center gap-2">
-                <Phone className="h-6 w-6" />
-                Urgencias y Contacto de Emergencia
-              </CardTitle>
-              <CardDescription>
-                Si necesitas ayuda inmediata, no dudes en contactarnos
-              </CardDescription>
-            </CardHeader>
-
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
-                <div className="space-y-2">
-                  <Phone className="h-8 w-8 text-destructive mx-auto" />
-                  <h3 className="font-semibold text-foreground">Teléfono de Emergencia</h3>
-                  <p className="text-2xl font-bold text-destructive">
-                    {links?.emergencyPhone || "+56-2-2303-7000"}
-                  </p>
-                  <p className="text-sm text-muted-foreground">Disponible 24/7</p>
-                </div>
-
-                <Separator orientation="vertical" className="hidden md:block h-24 mx-auto" />
-
-                <div className="space-y-2">
-                  <Mail className="h-8 w-8 text-destructive mx-auto" />
-                  <h3 className="font-semibold text-foreground">Correo de Emergencia</h3>
-                  <p className="text-lg font-semibold text-destructive">
-                    {links?.emergencyEmail || "emergencias@usm.cl"}
-                  </p>
-                  <p className="text-sm text-muted-foreground">Respuesta en 24 horas</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          
 
         </div>
       </main>

@@ -30,16 +30,6 @@ const Psicologia = () => {
                 Recibe acompañamiento en tu bienestar académico, emocional y personal.  
                 Esta página te guía paso a paso para solicitar tu hora a través del sistema oficial SIREB.
               </p>
-
-              <Button 
-                size="lg"
-                className="mt-6 px-8 bg-white text-primary hover:bg-white/90"
-                onClick={() => window.open("https://sireb.usm.cl", "_blank")}
-              >
-                Solicitar atención en SIREB
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-
             </div>
           </div>
         </section>

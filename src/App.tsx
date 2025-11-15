@@ -12,6 +12,7 @@ import Eventos from "./pages/Eventos";
 import EventoDetalle from "./pages/EventoDetalle";
 import Salud from "./pages/Salud";
 import Psicologia from "./pages/Psicologia";
+import ScrollToTop from "./components/home/ScrollToTop"
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop/>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/contacto" element={<Contacto />} />

@@ -103,7 +103,7 @@ export default function BecasDetalle() {
                                         <Users className="h-5 w-5 text-primary" />
                                         <div>
                                             <p className="font-medium">Dirigido a</p>
-                                            <p className="text-sm text-muted-foreground">Todos</p>
+                                            <p className="text-sm text-muted-foreground">Estudiantes</p>
                                         </div>
                                     </div>
 
@@ -188,7 +188,7 @@ export default function BecasDetalle() {
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent>
-                                        {beca.descripcion}
+                                        {beca.descripcionLarga}
                                     </CardContent>
                                 </Card>
 
@@ -221,11 +221,11 @@ export default function BecasDetalle() {
                                     </CardHeader>
                                     <CardContent className="space-y-3">
                                         <div>
-                                            <p className="text-sm font-medium">Aplica para</p>
-                                            <p className="text-sm text-muted-foreground">Estudiantes Pregrado diurno</p>
-                                            <p className="text-sm text-muted-foreground">Estudiantes Pregrado vespertino</p>
-                                            <p className="text-sm text-muted-foreground">Estudiantes Postgrados</p>
-                                        </div>
+                                        <p className="text-sm font-medium">Aplica para</p>
+                                        {beca.beneficiarios.map((ben) => (
+                                            < p className="text-sm text-muted-foreground">{ben}</p>
+                                        ))}
+                                        </div>                     
                                     </CardContent>
                                 </Card>
                             </div>

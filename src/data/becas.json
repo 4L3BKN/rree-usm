@@ -5,6 +5,7 @@
       "slug": "beca-excelencia-academica",
       "nombre": "Beca de Excelencia Académica USM",
       "descripcion": "Beca dirigida a estudiantes con alto rendimiento académico que requieren apoyo económico para continuar sus estudios.",
+      "descripcionLarga": "Beca dirigida a estudiantes con alto rendimiento académico que requieren apoyo económico para continuar sus estudios.",
       "requisitos": [
         "Promedio ponderado mínimo de 5.5",
         "Situación socioeconómica vulnerable",
@@ -31,20 +32,23 @@
       "estado": "abierta",
       "fechaLimite": "2025-03-15",
       "beneficio": "Monto monetario",
-      "duracionBeneficio": "1 semestre"
+      "duracionBeneficio": "1 semestre",
+      "beneficiarios": [
+        "Estudiantes Diurnos",
+        "Estudiantes Vespertinos",
+        "Estudiantes Postgrado"
+      ]
     },
     {
       "id": "beca-apoyo-alimentacion",
       "slug": "beca-apoyo-alimentacion", 
       "nombre": "Beca de Apoyo Alimentación",
       "descripcion": "Subsidio para gastos de alimentación durante el período académico.",
+      "descripcionLarga": "consiste en el acceso gratuito a los servicios de alimentación institucionales (casinos) al que puede postular el estudiantado perteneciente a los primeros deciles socioeconómicos, y que no cuenten con Beca de Alimentación de Educación Superior de la JUNAEB (BAES). Este beneficio puede incluir almuerzo y/o cena, lo que se determina en función de los cupos y presupuestos institucionales.Esta beca también se otorga por méritos académicos, deportivos, de participación estudiantil, y culturales a estudiantes que desarrollen alguna actividad en representación de la USM tales como Coro, Tuna, Orquesta, ramas deportivas, Federación de estudiantes, entre otros.",
       "requisitos": [
-        "Por vulnerabilidad socioeconómica:",
-        "  - Estar dentro del 60% de mayor vulnerabilidad (quintiles 1–3 o deciles 1–6)",
-        "  - No tener BAES (JUNAEB)",
-        "  - Matrícula vigente y estudiante regular en pregrado diurno",
-        "Por méritos:",
-        "  - Rendimiento académico, deportivo, cultural u otros"
+        "Estar dentro del 60% de mayor vulnerabilidad (quintiles 1–3 o deciles 1–6)",
+        "No tener BAES (JUNAEB)",
+        "Matrícula vigente y estudiante regular"
       ],
       "pasos": [
         "Mandar correo a becasusm@usm.cl con el asunto 'beca alimentación'",
@@ -59,7 +63,11 @@
       "estado": "abierta",
       "fechaLimite": "2025-08-29",
       "beneficio": "Raciones de comida para ocupar en el casino institucional",
-      "duracionBeneficio":"1 semestre"
+      "duracionBeneficio":"1 semestre",
+      "beneficiarios": [
+        "Estudiantes Diurnos",
+        "Estudiantes Vespertinos"
+      ]
     },
     {
       "id": "beca-deportiva",
@@ -86,7 +94,40 @@
       "estado": "cerrada",
       "fechaLimite": "2025-02-28",
       "beneficio":"Monto monetario",
-      "duracionBeneficio":"1 semestre"
+      "duracionBeneficio":"1 semestre",
+      "beneficiarios": [
+        "Estudiantes Diurnos"
+      ]
+    },
+    {
+      "id": "beca-padres-madres",
+      "slug": "beca-padres-madres",
+      "nombre": "Beca para Estudiantes Padres y Madres",
+      "descripcion": "Apoyo económico para estudiantes con hijos en edad preescolar.",
+      "descripcionLarga": "Consiste en una subvención monetaria orientada a favorecer a estudiantes de los primeros deciles socioeconómicos con hijos (as)en edad preescolar, ayudándoles a desarrollar con tranquilidad su vida universitaria.",
+      "requisitos": [
+        "Matrícula vigente y estudiante regular",
+        "Encontrarse dentro de los 6 primeros deciles de ingreso socioeconómico",
+        "La edad del hijo/a no debe superar los 6 años"
+      ],
+      "pasos": [
+        "Presentar certificado de nacimiento del hijo/a",
+        "Mandar correo a becasusm@usm.cl con el asunto 'beca padres y madres'"
+      ],
+      "enlaces": [
+        {
+          "texto": "Ver más información",
+          "url": "#"
+        }
+      ],
+      "estado": "cerrada",
+      "fechaLimite": "2025-06-28",
+      "beneficio":"Monto monetario",
+      "duracionBeneficio":"1 semestre",
+      "beneficiarios": [
+        "Estudiantes Diurnos",
+        "Estudiantes Vespertinos (revisión particular por cada caso)"
+      ]
     }
   ],
   "becasExternas": [
@@ -95,6 +136,7 @@
       "slug": "beca-junaeb",
       "nombre": "Beca de Alimentación JUNAEB",
       "descripcion": "Beneficio estatal para estudiantes de educación superior en situación de vulnerabilidad.",
+      "descripcionLarga": "Beneficio estatal para estudiantes de educación superior en situación de vulnerabilidad.",
       "requisitos": [
         "Pertenecer a los quintiles I, II o III",
         "Estar matriculado en institución acreditada",
@@ -119,13 +161,18 @@
       "estado": "proximamente",
       "fechaLimite": "2025-05-15",
       "beneficio": "Tarjeta con cargas mensuales para gastos alimenticios",
-      "duracionBeneficio": "a evaluación de JUNAEB"
+      "duracionBeneficio": "a evaluación de JUNAEB",
+      "beneficiarios": [
+        "Estudiantes Diurnos",
+        "Estudiantes Vespertinos"
+      ]
     },
     {
       "id": "beca-presidente",
       "slug": "beca-presidente",
       "nombre": "Beca Presidente de la República",
       "descripcion": "Beca estatal de excelencia académica para estudiantes destacados.",
+      "descripcionLarga": "Beca estatal de excelencia académica para estudiantes destacados.",
       "requisitos": [
         "Puntaje PSU/PDT en percentil 90 o superior",
         "Situación socioeconómica vulnerable",
@@ -146,7 +193,11 @@
       "estado": "cerrada",
       "fechaLimite": "2025-01-31",
       "beneficio":"Monto monetario",
-      "duracionBeneficio":"1 semestre"
+      "duracionBeneficio":"1 semestre",
+      "beneficiarios": [
+        "Estudiantes Diurnos",
+        "Estudiantes Vespertinos"
+      ]
     }
   ],
   "beneficiosEstudiantiles": [
@@ -155,6 +206,7 @@
       "slug": "credito-arancel",
       "nombre": "Crédito con Aval del Estado (CAE)",
       "descripcion": "Financiamiento estudiantil para cubrir el arancel de la carrera.",
+      "descripcionLarga": "Financiamiento estudiantil para cubrir el arancel de la carrera.",
       "requisitos": [
         "Ser estudiante de educación superior",
         "Institución debe estar adscrita al CAE",
@@ -179,13 +231,18 @@
       "estado": "abierta",
       "fechaLimite": "2025-12-31",
       "beneficio": "Monto monetario que cubre un porcentaje de las cuotas mensuales",
-      "duracionBeneficio": "1 año"
+      "duracionBeneficio": "1 año",
+      "beneficiarios": [
+        "Estudiantes Diurnos",
+        "Estudiantes Vespertinos"
+      ]
     },
     {
       "id": "fondo-solidario",
       "slug": "fondo-solidario",
       "nombre": "Fondo Solidario de Crédito Universitario",
       "descripcion": "Crédito estatal sin intereses para estudiantes de universidades del CRUCH.",
+      "descripcionLarga": "Crédito estatal sin intereses para estudiantes de universidades del CRUCH.",
       "requisitos": [
         "Pertenecer a los quintiles I, II, III o IV",
         "Estar matriculado en universidad CRUCH",
@@ -206,7 +263,11 @@
       "estado": "abierta",
       "fechaLimite": "2025-11-30",
       "beneficio": "Monto monetario que cubre un porcentaje de las cuotas mensuales",
-      "duracionBeneficio":"1 año"
+      "duracionBeneficio":"1 año",
+      "beneficiarios": [
+        "Estudiantes Diurnos",
+        "Estudiantes Vespertinos"
+      ]
     }
   ]
 }
